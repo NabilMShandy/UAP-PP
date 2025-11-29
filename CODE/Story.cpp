@@ -140,6 +140,8 @@ int main(){
     Title();
     Loading();
     Intro();
+
+    // INI TEST LAGI
     
     endwin();
 }
