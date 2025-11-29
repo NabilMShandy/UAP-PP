@@ -120,7 +120,6 @@ void Intro(){
     refresh();
     napms(300);
     clear();
-    
 
     mvprintw(5, 35, "+-------------------------------------------------------------+");
     mvprintw(6, 35, "|                                                             |");
@@ -134,7 +133,6 @@ void Intro(){
     napms(1000);
 
 }
-
 
 int main(){
     initscr();
