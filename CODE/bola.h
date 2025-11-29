@@ -4,25 +4,17 @@
 #include <cstdint>
 #include <cstdlib>
 
-void gerak();
+
 class Bola {
     public: 
     int x;
     int y;
-    Bola(int x, int y);
+    Bola(int begin_x, int begin_y);
     void gerak (int gx, int gy);
-};
-
-
-
-
-
-
-
-void gerak(){ 
+    void tampilkan();
+    void updateposisi(int gx, int gy);
     
-}
-
-
+    
+};
 #endif // BOLA_H
 
