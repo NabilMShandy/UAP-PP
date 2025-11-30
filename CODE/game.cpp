@@ -1,9 +1,8 @@
 #include <ncurses/curses.h>
 #include "bola.h"
-#include "game.h";
+#include "game.h"
 
-
-
+const short tick_speed = 50; //jangan diubah
 
 bool Game::input() {
     int ch = getch();
@@ -21,7 +20,7 @@ void Game::game() {
 
     Bola bola(max_x / 2, max_y / 2);
 
-    int speed = 5;
+    int speed = 3;
     int gx = speed;
     int gy = speed;
     const int turner = -1;
@@ -39,7 +38,7 @@ void Game::game() {
         if (bola.y <= 1 || bola.y >= max_y - 2) gy *= turner;
 
         refresh();
-        napms(50);
+        napms(tick_speed);
     }
 
 }

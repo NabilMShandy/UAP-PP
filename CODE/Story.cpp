@@ -1,11 +1,19 @@
-// #ifndef STORY_H
-// #define STORY_H
 
 #include <ncurses/curses.h>
 #include <windows.h>
+#include "story.h"
+#include <iostream>
 
+void Story::reciter (std::string text, int delay){
+    for (char c : text) {
+        addch(c);
+        refresh();
+        napms(delay);
+    }
+}
 // Judul game
-void Title(){
+
+void Story::Title(){
     curs_set(0);
 
     mvprintw(5, 25,  " /$$$$$$  /$$$$$$$$ /$$$$$$  /$$$$$$$        /$$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$ ");
@@ -25,7 +33,7 @@ void Title(){
 
 
 // Tampilan loading
-void Loading(){
+void Story::Loading(){
     curs_set(0);
     
     for(int i = 0; i < 3; i++){
@@ -38,7 +46,7 @@ void Loading(){
         for(int f = 1; f <= 18; f++){
             mvprintw(17, 56 + f, "|");
             refresh();
-            napms(50);
+            napms(75);
         }
     }
     
@@ -46,7 +54,7 @@ void Loading(){
 }
 
 // Story
-void Intro(){
+void Story::Intro(){
     clear();
     refresh();
 
@@ -72,23 +80,32 @@ void Intro(){
     mvprintw(24, 35, "                   '   '                      o  +                  . ");
     refresh();
 
-    napms(300);
+    napms(100);
 
-    mvprintw(26, 35, "Pada abad ke-75, berjarak ribuan tahun cahaya dari bumi.");
+    move(26, 35);
+    reciter("Di suatu tempat di galaksi yang jauh...");
     refresh();
     napms(300);
+    Sleep(3000);
 
-    mvprintw(27, 35, "Jauh di dalam Supergugus Laniakea XZ-4, terdapat arena angkasa kuno,");
+    move(27, 35);
+    reciter("Jauh di dalam Supergugus Laniakea XZ-4, terdapat arena angkasa kuno,");
     refresh();
     napms(300);
+    Sleep(3000);
 
-    mvprintw(28, 35, "yang disebut sebagai THE RESONANCE CHAMBER.");
+    move(28, 35);
+    reciter("yang disebut sebagai THE RESONANCE CHAMBER.");
     refresh();
     napms(300);
+    Sleep(3000);
+;
 
-    mvprintw(29, 35, "Peninggalan peradaban kosmik yang telah musnah ribuan tahun lalu.");
+    move(29, 35);
+    reciter("Arena ini dipercaya sebagai pusat keseimbangan energi kosmik di alam semesta");
     refresh();
     napms(300);
+    Sleep(3000);
 
     clear();
 
@@ -104,21 +121,33 @@ void Intro(){
     refresh();
     napms(250);
 
-    mvprintw(15, 40, "Di dalam arena itu, terdapat sebuah bola energi yang terus berdenyut,");
+    move(15, 40);
+    reciter("Di tengah arena ini, terdapat sebuah bola bercahaya terang,");
     refresh();
     napms(300);
+    Sleep(3000);
 
-    mvprintw(16, 40, "yang dikenal sebagai The Astral Core.");
-    refresh();
-    napms(300);
 
-    mvprintw(17, 40, "Bola misterius ini memiliki kekuatan besar, dengan satu getaran yang mampu menstabilkan alam semesta,");
+    move(16, 40);
+    reciter("dikenal sebagai 'Astral Core'.  ");
     refresh();
     napms(300);
+    Sleep(3000);
 
-    mvprintw(18, 40, "atau menghancurkan.");
+
+    move(17, 40);
+    reciter("Bola misterius ini memiliki kekuatan besar, dengan satu getaran yang mampu menstabilkan alam semesta,");
     refresh();
     napms(300);
+    Sleep(3000);
+
+
+    move(18, 40);
+    reciter("namun juga dapat menyebabkan kehancuran total jika jatuh ke tangan yang salah.");
+    refresh();
+    napms(300);
+    Sleep(3000);
+
     clear();
 
     mvprintw(5, 35, "+-------------------------------------------------------------+");
@@ -131,19 +160,6 @@ void Intro(){
     mvprintw(12, 35,"+-------------------------------------------------------------+");
     refresh();
     napms(1000);
-
+    Sleep(3000);
 }
 
-int main(){
-    initscr();
-
-    Title();
-    Loading();
-    Intro();
-
-    // INI TEST LAGI
-    
-    endwin();
-}
-
-// #endif
