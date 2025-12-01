@@ -3,11 +3,12 @@
 #include "story.h"
 #include <iostream>
 #include "music.h"
+using namespace std;
 
 // Ini storynya udah gw tes sama kecepatannya udah disesuaiin
 // mungkin bakal ada penyesuaian lagi, kaya posisi gambar sama delay teks
 
-void Story::reciter (std::string text, int delay){
+void Story::reciter (string text, int delay){
     for (char c : text) {
         addch(c);
         refresh();
@@ -49,24 +50,22 @@ void Story::Loading(){
         for(int f = 1; f <= 20; f++){
             mvprintw(17, 56 + f, "|");
             refresh();
-            napms(100);
+            napms(50);
         }
     }
 }
 
 // Story
-void Intro(){
-
+void Story::Intro(){
     // Ini manggil musiknya, musiknya entar ditambah lagi
     // Ini ngikutin local path gw
     // entar coba biar semua bisa play lagunya
+    playmusic("D:\\DEV\\UAP-PP\\CODE\\Musik\\Epic Intro.wav");
 
-    playmusic("D:\\DEV\\UAP-PP\\Musik\\Epic Intro.wav");
     curs_set(0);
     
     clear();
     refresh();
-
 
     mvprintw(5, 35,  "        .        *           .              +         *        .           ");
     mvprintw(6, 35,  "                      .             *              .        +              ");
@@ -89,26 +88,52 @@ void Intro(){
     mvprintw(23, 35, "              .       *         .              +         *        .       ");
     mvprintw(24, 35, "    +              .        *         .              .         +          ");
     refresh();
-    napms(4500);
 
-    mvprintw(26, 35, "Pada abad ke-75, berjarak ribuan tahun cahaya dari bumi.");
-    refresh();
-    napms(3000);
+    napms(2000);
 
-    mvprintw(27, 35, "Jauh di dalam Supergugus Laniakea XZ-4, terdapat arena angkasa kuno,");
+    move(26, 35);
+    reciter("Pada abad ke-75, berjarak ribuan tahun cahaya dari bumi.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+    
+    move(27, 35);
+    reciter("Jauh di dalam Supergugus Laniakea XZ-4, terdapat arena angkasa kuno,");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(28, 35, "yang disebut sebagai THE RESONANCE CHAMBER.");
-    refresh();
-    napms(3000);
 
-    mvprintw(29, 35, "Peninggalan peradaban kosmik yang telah musnah ribuan tahun lalu.");
+    move(28, 35);
+    reciter("yang disebut sebagai THE RESONANCE CHAMBER.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(29, 35);
+    reciter("Peninggalan peradaban kosmik yang telah musnah ribuan tahun lalu.");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
     clear();
-
+    napms(200);
 
     mvprintw(5, 45, "          .-~~~~~~~~~-.");
     mvprintw(6, 45, "      .-'               '-.");
@@ -123,102 +148,178 @@ void Intro(){
     mvprintw(15, 45, "      '-.               .-'");
     mvprintw(16, 45, "          '-._______.-'");
     refresh();
-    napms(3500);
+    napms(2000);
 
-    mvprintw(17, 35, "Di dalam arena itu, terdapat sebuah bola energi yang terus berdenyut,");
+    move(18, 35);
+    reciter("Di dalam arena itu, terdapat sebuah bola energi yang terus berdenyut,");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(18, 35, "yang dikenal sebagai The Astral Core.");
+    move(19, 35);
+    reciter("yang dikenal sebagai The Astral Core.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(19, 35, "Bola misterius ini memiliki kekuatan besar, ");
+    move(20, 35);
+    reciter("Bola misterius ini memiliki kekuatan besar, ");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(20, 35, "dengan satu getaran yang mampu menstabilkan alam semesta,");
+    move(21, 35);
+    reciter("dengan satu getaran yang mampu menstabilkan alam semesta,");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(21, 35, "atau menghancurkan.");
+    move(22, 35);
+    reciter("atau menghancurkan.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
     clear();
+    napms(200);
 
-    mvprintw(5, 40, "+-------------------------------------------------------------+");
-    mvprintw(6, 40, "|                                                             |");
-    mvprintw(7, 40, "|    |                                                 |      |");
-    mvprintw(8, 40, "|    |                       0                         |      |");
-    mvprintw(9, 40, "|    |                (Astral Core)                    |      |");
-    mvprintw(10, 40,"|    |                                                 |      |");
-    mvprintw(11, 40,"|                                                             |");
-    mvprintw(12, 40,"+-------------------------------------------------------------+");
-    refresh();
-    napms(3500);
-
-    mvprintw(15, 35, "Dua fraksi terbesar di galaksi, FRAKSI PROXIMA dan FRAKSI CENTAURI,");
-    refresh();
-    napms(3000);
-
-    mvprintw(16, 35, "kini bersaing untuk menguasai Astral Core tersebut.");
-    refresh();
-    napms(3000);
-
-    mvprintw(17, 35, "Perang besar dilarang, karena energi Laniakea XZ-4 terlalu rapuh.");
-    refresh();
-    napms(3000);
-
-    mvprintw(18, 35, "Satu letupan dari getaran Astral Core saja dapat membuat semesta kembali ke titik nol.");
-    refresh();
-    napms(3000);
-
-    clear();
-
-// Langit penuh bintang dengan bintang raksasa
-    mvprintw(5, 55,  "        *           .        |            *        .        *    ");
-    mvprintw(6, 55,  "    .       *                |                *           .      ");
-    mvprintw(7, 55,  "         .            *     \\|/        .            *           ");
-    mvprintw(8, 55,  "   *          .           ---*---   *        .                  ");
-    mvprintw(9, 55,  "         *                  /|\\          *        .        *    ");
-    mvprintw(10, 55, "    .            *           |      .                *          ");
-    mvprintw(11, 55, "              .      *       |   *          ....--==-.      .   ");
-    mvprintw(12, 55, "  *     *         .          |      .--==***#########*     *    ");
-    mvprintw(13, 55, "            .   *            |  .=*#####******###**###  *       ");
-    mvprintw(14, 55, "      *              .      *|* =####***##*##****####**     .   ");
-    mvprintw(15, 55, "  .         *    .=*.    *   | *.=###**##****##*#*###**    *    ");
-    mvprintw(16, 55, "       *       .     -*###*#*.####**###****###*####*        .   ");
-    mvprintw(17, 55, "            *        =#*.#*####*###*#*...*****#*..*###. -#   *  ");
-    mvprintw(18, 55, "  *  .=====----------=###**#########*#*######*###*####* *#.     ");
-    mvprintw(19, 55, "          *       .   *####*##*###*####*#  *           .  *     ");
-    mvprintw(20, 55, "      .       ...   =###*####*#**##**#=    *  #*     ###    *   ");
-    mvprintw(21, 55, "  *         ..=*#*    *   =####*##*###**   ....#     *    .     ");
-    mvprintw(22, 55, "       *  .=###*        .        =####*#*#    *####*      *     ");
-    mvprintw(23, 55, "    .    .=*#*       *      ..=####*  *  #*   ##* *#     .   *  ");
-    mvprintw(24, 55, "  *    .=*#*         .  ..=####**        ##*       *            ");
-    mvprintw(25, 55, "      =#*       *    .=####**     *      ###     .         *    ");
-    mvprintw(26, 55, "  .  #*     .  .===**##**       .        #**       *       .    ");
-    mvprintw(27, 55, "     #*  ...===**      *    .            ##    .        *       ");
-    mvprintw(28, 55, "  *  ****       .                 *      *#         .       *   ");
-    mvprintw(29, 55, "           *          .   *              ##    *         .      ");
-    mvprintw(30, 55, "      .         *                  .     #*         *           ");
-    mvprintw(31, 55, "  *        .              *     .        **    .         *      ");
-    refresh();
-    napms(3000);
-
-    mvprintw(32, 55, "Seluruh galaksi sepakat, satu satunya cara,");
+    mvprintw(15, 40, "+-------------------------------------------------------------+");
+    mvprintw(16, 40, "|                                                             |");
+    mvprintw(17, 40, "|    |                                                 |      |");
+    mvprintw(18, 40, "|    |                       0                         |      |");
+    mvprintw(19, 40, "|    |                (Astral Core)                    |      |");
+    mvprintw(20, 40, "|    |                                                 |      |");
+    mvprintw(21, 40, "|                                                             |");
+    mvprintw(22, 40, "+-------------------------------------------------------------+");
     refresh();
     napms(2000);
 
-    mvprintw(33, 55, "untuk untuk menyelesaikan sengketa perebutan benda misterius tersebut");
+    move(24, 40);
+    reciter("Dua fraksi terbesar di galaksi, FRAKSI PROXIMA dan FRAKSI CENTAURI,");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(34, 55, "hanyalah dengan PERTARUNGAN DI ARENA RESONANSI.");
+    move(25, 40);
+    reciter("kini bersaing untuk menguasai Astral Core tersebut.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(26, 40);
+    reciter("Perang besar dilarang, karena energi Laniakea XZ-4 terlalu rapuh.");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(27, 40);
+    reciter("Satu letupan dari getaran Astral Core saja dapat membuat semesta kembali ke titik nol.");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
     clear();
+    napms(200);
+
+// Langit penuh bintang dengan bintang raksasa
+    mvprintw(5, 45,  "        *           .        |            *        .        *    ");
+    mvprintw(6, 45,  "    .       *                |                *           .      ");
+    mvprintw(7, 45,  "         .            *     \\|/        .            *           ");
+    mvprintw(8, 45,  "   *          .           ---*---   *        .                  ");
+    mvprintw(9, 45,  "         *                  /|\\          *        .        *    ");
+    mvprintw(10, 45, "    .            *           |      .                *          ");
+    mvprintw(11, 45, "              .      *       |   *          ....--==-.      .   ");
+    mvprintw(12, 45, "  *     *         .          |      .--==***#########*     *    ");
+    mvprintw(13, 45, "            .   *            |  .=*#####******###**###  *       ");
+    mvprintw(14, 45, "      *              .      *|* =####***##*##****####**     .   ");
+    mvprintw(15, 45, "  .         *    .=*.    *   | *.=###**##****##*#*###**    *    ");
+    mvprintw(16, 45, "       *       .     -*###*#*.####**###****###*####*        .   ");
+    mvprintw(17, 45, "            *        =#*.#*####*###*#*...*****#*..*###. -#   *  ");
+    mvprintw(18, 45, "  *  .=====----------=###**#########*#*######*###*####* *#.     ");
+    mvprintw(19, 45, "          *       .   *####*##*###*####*#  *           .  *     ");
+    mvprintw(20, 45, "      .       ...   =###*####*#**##**#=    *  #*     ###    *   ");
+    mvprintw(21, 45, "  *         ..=*#*    *   =####*##*###**   ....#     *    .     ");
+    mvprintw(22, 45, "       *  .=###*        .        =####*#*#    *####*      *     ");
+    mvprintw(23, 45, "    .    .=*#*       *      ..=####*  *  #*   ##* *#     .   *  ");
+    mvprintw(24, 45, "  *    .=*#*         .  ..=####**        ##*       *            ");
+    mvprintw(25, 45, "      =#*       *    .=####**     *      ###     .         *    ");
+    mvprintw(26, 45, "  .  #*     .  .===**##**       .        #**       *       .    ");
+    mvprintw(27, 45, "     #*  ...===**      *    .            ##    .        *       ");
+    mvprintw(28, 45, "  *  ****       .                 *      *#         .       *   ");
+    mvprintw(29, 45, "           *          .   *              ##    *         .      ");
+    mvprintw(30, 45, "      .         *                  .     #*         *           ");
+    mvprintw(31, 45, "  *        .              *     .        **    .         *      ");
+    refresh();
+    napms(2000);
+
+    move(33, 45);
+    reciter("Seluruh galaksi sepakat, satu-satunya cara,");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(34, 45);
+    reciter("untuk untuk menyelesaikan sengketa perebutan benda misterius tersebut,");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(35, 45);
+    reciter("hanyalah dengan PERTARUNGAN DI ARENA RESONANSI.");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    clear();
+    napms(200);
 
     mvprintw(1, 40, "        .        *           .                    *         .              *        ");
     mvprintw(2, 40, "  *          .       *    .         *    .              .         *            .   ");
@@ -257,26 +358,50 @@ void Intro(){
     mvprintw(34, 40, " .    *         .            |        .   ||~~~~~~~~~~~~        .                 ");
     mvprintw(35, 40, "         .             *     |            |~~~~~~~~~~~~~~    *       .       *    ");
     refresh();
-
     napms(2000);
 
-    mvprintw(36, 40, "Kamu adalah pilot terpilih, yang ditakdirkan untuk kelak akan menyelamatkan semesta.");
+    move(36, 40);
+    reciter("Kamu adalah pilot terpilih, yang ditakdirkan untuk kelak akan menyelamatkan semesta.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(37, 40, "Gunakan kemampuanmu dengan baik.");
+    move(37, 40);
+    reciter("Gunakan kemampuanmu dengan baik.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(38, 40, "Kapalmu akan memasuki arena kosmik berbahaya, di mana pantulan energi kosmik");
+    move(38, 40);
+    reciter("Kapalmu akan memasuki arena kosmik berbahaya, di mana pantulan energi kosmik,");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(39, 40, "akan menentukan masa depan alam semesta.");
+    move(39, 40);
+    reciter("akan menentukan masa depan alam semesta.");
     refresh();
-    napms(3000);
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
     clear();
+    napms(200);
 
     mvprintw(9, 25,  "       //\\\\       ");
     mvprintw(10, 25, "      //  \\\\      ");
@@ -300,37 +425,67 @@ void Intro(){
     refresh();
     napms(2000);
 
-    mvprintw(29, 25, "Setiap pantulan adalah gema sejarah.");
-    mvprintw(30, 25, "Setiap gema adalah penentu takdir.");
+    move(29, 25);
+    reciter("Setiap pantulan adalah gema sejarah.");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(30, 25);
+    reciter("Setiap gema adalah penentu takdir.");
+    refresh();
+    napms(25);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    mvprintw(9, 100,  "                 //\\\\       ");
+    mvprintw(10, 100, "                //  \\\\      ");
+    mvprintw(11, 100, "               //    \\\\     ");
+    mvprintw(12, 100, "              //______\\\\    ");
+    mvprintw(13, 100, "             |||########|||  ");
+    mvprintw(14, 100, "             |||########|||  ");
+    mvprintw(15, 100, "             |||########|||  ");
+    mvprintw(16, 100, "       ~~~~<<|||########|||===");
+    mvprintw(17, 100, "       ~~~~<<|||########|||===");
+    mvprintw(18, 100, "       ~~~~<<|||########|||===");
+    mvprintw(19, 100, "             |||########|||  ");
+    mvprintw(20, 100, "             |||########|||  ");
+    mvprintw(21, 100, "             |||########|||  ");
+    mvprintw(22, 100, "             ///######\\\\\\   ");
+    mvprintw(23, 100, "               ///####\\\\\\    ");
+    mvprintw(24, 100, "                ///##\\\\\\     ");
+    mvprintw(25, 100, "                 ///\\\\\\      ");
+    mvprintw(26, 100, "                ()(((()))     ");
+    mvprintw(27, 100, "                ()(((()))     ");
     refresh();
     napms(2000);
 
-    mvprintw(9, 70,  "                 //\\\\       ");
-    mvprintw(10, 70, "                //  \\\\      ");
-    mvprintw(11, 70, "               //    \\\\     ");
-    mvprintw(12, 70, "              //______\\\\    ");
-    mvprintw(13, 70, "             |||########|||  ");
-    mvprintw(14, 70, "             |||########|||  ");
-    mvprintw(15, 70, "             |||########|||  ");
-    mvprintw(16, 70, "       ~~~~<<|||########|||===");
-    mvprintw(17, 70, "       ~~~~<<|||########|||===");
-    mvprintw(18, 70, "       ~~~~<<|||########|||===");
-    mvprintw(19, 70, "             |||########|||  ");
-    mvprintw(20, 70, "             |||########|||  ");
-    mvprintw(21, 70, "             |||########|||  ");
-    mvprintw(22, 70, "             ///######\\\\\\   ");
-    mvprintw(23, 70, "               ///####\\\\\\    ");
-    mvprintw(24, 70, "                ///##\\\\\\     ");
-    mvprintw(25, 70, "                 ///\\\\\\      ");
-    mvprintw(26, 70, "                ()(((()))     ");
-    mvprintw(27, 70, "                ()(((()))     ");
+    move(29, 100);
+    reciter("Dan setiap kekalahan,");
     refresh();
-    napms(2000);
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
-    mvprintw(29, 70, "Dan setiap kekalahan, ");
-    mvprintw(30, 70, "artinya adalah akhir.");
+    move(30, 100);
+    reciter("artinya adalah akhir.");
     refresh();
-    napms(2000);
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
 
     clear();
 
@@ -361,42 +516,77 @@ void Intro(){
     mvprintw(29, 35, "              .              .         *              .              .      ");
     mvprintw(30, 35, "   *              .    +         .              .              *            ");
     refresh();
-
-    napms(3000);
-
-    mvprintw(31, 35, "Pertahankan orbitmu.");
-    napms(1500);
-    mvprintw(32, 35, "Jangan biarkan kekuatan Astral Core jatuh ke tangan musuh");
-    napms(1000);
-    refresh();
-
-    mvprintw(33, 35, "Buktikan fraksimu layak memegang cahaya kosmos");
     napms(2000);
+
+    move(32, 35);
+    reciter("Pertahankan orbitmu.");
     refresh();
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+    
+    move(33, 35);
+    reciter("jangan biarkan kekuatan Astral Core jatuh ke tangan musuh.");
+    refresh();
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+    
+    move(34, 35);
+    reciter("Buktikan fraksimu layak memegang cahaya kosmos.");
+    refresh();
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
 
     clear();
-
-    napms(3000);
-
+    napms(2000);
     stopmusic();
 
-    mvprintw(20, 50, "> Ini bukan hanya sekedar pertempuran.");
-    mvprintw(23, 50, "> Ini adalah legenda yang ditulis dalam kehampaan gugus bintang.");
+    move(30, 40);
+    reciter("> Ini bukan hanya sekedar pertempuran.");
     refresh();
-    napms(5000);
-    
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    move(32, 40);
+    reciter("> Ini adalah legenda yang ditulis dalam kehampaan gugus bintang.");
+    refresh();
+    napms(10);
+    for (int t = 0; t < 3000; t += 100) {
+        napms(25);
+        int ch = getch();
+        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
+    }
+
+    napms(3000); 
     clear();
+
 }
 
 // FUNGSI MAIN INI HANYA UNTUK TES SAJA
 // int main(){
 
 //     initscr();
+//     nodelay(stdscr, TRUE);
 //     Story story;
-//     story.Title();
-//     story.Loading();
-    
-//     Intro();
+// //     // story.Title();
+// //     // story.Loading();
+//     story.Intro();
     
 //     endwin();
 // }

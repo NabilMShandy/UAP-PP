@@ -7,7 +7,7 @@
 
 class Story {
     public:
-    void reciter(std::string text, int delay = 50);
+    void reciter(std::string text, int delay = 40);
     void input();
     
         void Title();

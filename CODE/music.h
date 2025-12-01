@@ -7,7 +7,7 @@
 #pragma comment(lib, "winmm.lib")
 
 // Mainkan musik
-void playmusic(const char * musicFile, DWORD flags = SND_ASYNC | SND_LOOP) {
+void playmusic(const char *musicFile, DWORD flags = SND_ASYNC | SND_LOOP | SND_SYNC) {
     PlaySoundA(musicFile, NULL, flags);
 }
 
