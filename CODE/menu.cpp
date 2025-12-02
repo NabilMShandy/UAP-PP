@@ -1,8 +1,9 @@
 #include <ncurses/curses.h>
 #include <windows.h>
+#include "menu.h"
 using namespace std;
 
-void initGame() {
+void MENU::initGame() {
     initscr();
     cbreak();
     noecho();
@@ -13,56 +14,56 @@ void initGame() {
     init_pair(1, COLOR_CYAN, COLOR_BLACK);
     init_pair(2, COLOR_YELLOW, COLOR_BLACK);
     init_pair(3, COLOR_WHITE, COLOR_BLUE);
-    init_pair(4, COLOR_BLACK, COLOR_BLACK);
+    init_pair(4, COLOR_WHITE, COLOR_BLACK);
 }
 
-void tampilanBintang() {
-    mvprintw(1, 0, " *    .        *          *        .         *         *        .        *      ");
-    mvprintw(2, 0, "  *          .                                      .        *               *  ");
-    mvprintw(3, 0, "      .  *           .      *             .      *               *              ");
-    mvprintw(4, 0, "*           .          *          *                       .              *      ");
-    mvprintw(5, 0, "      *                     .                 *                   *          .  ");
-    mvprintw(6, 0, " *    .        *       *        .         *        *        .         *        *");
-    mvprintw(7, 0, "  *          .                                  .        *                *     ");
-    mvprintw(8, 0, " *    .        *                .         *         *       .         *        *");
-    mvprintw(9, 0, "  *          .                                  .        *                *     ");
-    mvprintw(10, 0, "      .  *           .       *         .      *               *               * ");
-    mvprintw(11, 0, "*           .          *                              .               *         ");
-    mvprintw(12, 0, "      *                                                       *           .     ");
-    mvprintw(13, 0, " *    .        *                                            .         *        *");
-    mvprintw(14, 0, "  *          .                                           *                *     ");
-    mvprintw(15, 0, "      .  *           .                                        *               * ");
-    mvprintw(16, 0, "*           .          *                              .               *         ");
-    mvprintw(17, 0, "      *                                                       *           .     ");
-    mvprintw(18, 0, " *    .        *          *         .               *       .         *        *");
-    mvprintw(19, 0, "  *          .                                  .        *                *     ");
-    mvprintw(20, 0, "      .  *           .      *             .                   *               * ");
-    mvprintw(21, 0, "*           .          *          *                   .               *         ");
-    mvprintw(22, 0, "      *                     .                                 *           .     ");
-    mvprintw(23, 0, " *    .        *          *        .         *         *       .         *      ");
-    mvprintw(24, 0, "  *          .                                     .        *                *  ");
+void MENU::tampilanBintang() {
+    mvprintw(2, 22, " *    .        *          *        .         *         *        .        *      ");
+    mvprintw(3, 22, "  *          .                                      .        *               *  ");
+    mvprintw(4, 22, "      .  *           .      *             .      *               *              ");
+    mvprintw(5, 22, "*           .          *          *                       .              *      ");
+    mvprintw(6, 22, "      *                     .                 *                   *          .  ");
+    mvprintw(7, 22, " *    .        *       *        .         *        *        .         *        *");
+    mvprintw(8, 22, "  *          .                                  .        *                *     ");
+    mvprintw(9, 22, " *    .        *                .         *         *       .         *        *");
+    mvprintw(10, 22, "  *          .                                  .        *                *     ");
+    mvprintw(11, 22, "      .  *           .       *         .      *               *               * ");
+    mvprintw(12, 22, "*           .          *                              .               *         ");
+    mvprintw(13, 22, "      *                          .          *                 *           .     ");
+    mvprintw(14, 22, " *    .        *    .       *          .         *          .         *        *");
+    mvprintw(15, 22, "  *          .        *                                  *                *     ");
+    mvprintw(16, 22, "      .  *           .                                        *               * ");
+    mvprintw(17, 22, "*           .     *                                        .          *         ");
+    mvprintw(18, 22, "      *               .                                       *           .     ");
+    mvprintw(19, 22, " *    .        *                                            .         *        *");
+    mvprintw(20, 22, "  *          .      *                                    *                *     ");
+    mvprintw(21, 22, "      .  *           .                                        *               * ");
+    mvprintw(22, 22, "*           .          *          *          *        .               *         ");
+    mvprintw(23, 22, "      *                     .                                 *           .     ");
+    mvprintw(24, 22, " *    .        *          *        .         *         *       .         *      ");
+    mvprintw(25, 22, "  *          .                                     .        *                *  ");
 }
 
-void tampilanJudul() {
-    int awalX = 4;
-    int awalY = 80 / 2;
+void MENU::tampilanJudul() {
+    int awalX = 6;
+    int awalY = 120 / 2;
 
     attron(COLOR_PAIR(2));
 
-    mvprintw(awalX, awalY - 25, " #### #####  ##   ###     ####   ###  #     #  #### ");
-    mvprintw(awalX + 1, awalY - 25, "#       #   #  #  #  #    #   # #   # # #   # #     ");
-    mvprintw(awalX + 2, awalY - 25, " ###    #  #    # ####    ####  #   # #  #  # # ### ");
-    mvprintw(awalX + 3, awalY - 25, "    #   #  ###### #  #    #     #   # #   # # #    #");
-    mvprintw(awalX + 4, awalY - 25, "####    #  #    # #   #   #      ###  #     #  #### ");
+    mvprintw(awalX, awalY - 24, " #### #####  ##   ###     ####   ###  #     #  #### ");
+    mvprintw(awalX + 1, awalY - 24, "#       #   #  #  #  #    #   # #   # # #   # #     ");
+    mvprintw(awalX + 2, awalY - 24, " ###    #  #    # ####    ####  #   # #  #  # # ### ");
+    mvprintw(awalX + 3, awalY - 24, "    #   #  ###### #  #    #     #   # #   # # #    #");
+    mvprintw(awalX + 4, awalY - 24, "####    #  #    # #   #   #      ###  #     #  #### ");
 
     attroff(COLOR_PAIR(2));
 }
 
-void tampilanMenu(int pilihan) {
-    short int kolom_kiriAtas = 26;
-    short int baris_kiriAtas = 11;
-    short int kolom_kananBawah = 54;
-    short int baris_kananBawah = 17;
+void MENU::tampilanMenu(int pilihan) {
+    short int kolom_kiriAtas = 48;
+    short int baris_kiriAtas = 14;
+    short int kolom_kananBawah = 75;
+    short int baris_kananBawah = 20;
     short int kolom, baris;
 
     attron(COLOR_PAIR(1));
@@ -105,16 +106,16 @@ void tampilanMenu(int pilihan) {
 
     if (pilihan == 1) {
         attron(COLOR_PAIR(3) | A_BOLD);
-        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 3, "    >    EXIT    <     ");
+        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 2, "     >    EXIT    <     ");
         attroff(COLOR_PAIR(3) | A_BOLD);
     } else {
         attron(COLOR_PAIR(4));
-        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 3, "         EXIT          ");
+        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 2, "          EXIT          ");
         attroff(COLOR_PAIR(4));
     }
 }
 
-int main() {
+void MENU::menu() {
     initGame();
 
     int pilihan = 0;
@@ -154,7 +155,4 @@ int main() {
     }
 
     refresh();
-    endwin();
-
-    return 0;
 }
