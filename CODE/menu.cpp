@@ -1,8 +1,9 @@
 #include <ncurses/curses.h>
 #include <windows.h>
+#include "menu.h"
 using namespace std;
 
-void initGame() {
+void MENU::initGame() {
     initscr();
     cbreak();
     noecho();
@@ -16,7 +17,7 @@ void initGame() {
     init_pair(4, COLOR_BLACK, COLOR_BLACK);
 }
 
-void tampilanBintang() {
+void MENU::tampilanBintang() {
     mvprintw(1, 0, " *    .        *          *        .         *         *        .        *      ");
     mvprintw(2, 0, "  *          .                                      .        *               *  ");
     mvprintw(3, 0, "      .  *           .      *             .      *               *              ");
@@ -43,7 +44,7 @@ void tampilanBintang() {
     mvprintw(24, 0, "  *          .                                     .        *                *  ");
 }
 
-void tampilanJudul() {
+void MENU::tampilanJudul() {
     int awalX = 4;
     int awalY = 80 / 2;
 
@@ -58,7 +59,7 @@ void tampilanJudul() {
     attroff(COLOR_PAIR(2));
 }
 
-void tampilanMenu(int pilihan) {
+void MENU::tampilanMenu(int pilihan) {
     short int kolom_kiriAtas = 26;
     short int baris_kiriAtas = 11;
     short int kolom_kananBawah = 54;
@@ -114,7 +115,7 @@ void tampilanMenu(int pilihan) {
     }
 }
 
-int main() {
+void MENU::menu() {
     initGame();
 
     int pilihan = 0;
@@ -154,7 +155,4 @@ int main() {
     }
 
     refresh();
-    endwin();
-
-    return 0;
 }
