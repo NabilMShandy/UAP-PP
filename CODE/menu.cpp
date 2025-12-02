@@ -106,11 +106,11 @@ void MENU::tampilanMenu(int pilihan) {
 
     if (pilihan == 1) {
         attron(COLOR_PAIR(3) | A_BOLD);
-        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 3, "    >    EXIT    <     ");
+        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 2, "     >    EXIT    <     ");
         attroff(COLOR_PAIR(3) | A_BOLD);
     } else {
         attron(COLOR_PAIR(4));
-        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 3, "         EXIT          ");
+        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 2, "          EXIT          ");
         attroff(COLOR_PAIR(4));
     }
 }
