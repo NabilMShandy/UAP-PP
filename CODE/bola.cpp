@@ -14,6 +14,7 @@ void Bola::gerak (int gx, int gy) {
 }
 
 void Bola::tampilkan() {
+    box(stdscr, 0, 0);
     mvprintw(y, x, "O");
 }
 

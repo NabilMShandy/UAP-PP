@@ -120,9 +120,8 @@ void MENU::menu() {
 
     int pilihan = 0;
     int ch;
-    int running = 1;
     
-    while (running == 1) {
+    while (true) {
         clear();
         
         tampilanBintang();
@@ -147,9 +146,11 @@ void MENU::menu() {
             }
         } else if (ch == 10) {
             if (pilihan == 0) {
-                
-            } else if (pilihan == 1) {
-                running = 0;
+               return;
+            } 
+            else{
+                endwin();
+                exit(0);
             }
         }
     }

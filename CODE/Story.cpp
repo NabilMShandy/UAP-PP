@@ -1,13 +1,6 @@
 #include <ncurses/curses.h>
 #include "story.h"
 #include <iostream>
-<<<<<<< HEAD
-#include "music.h"
-using namespace std;
-
-// Ini storynya udah gw tes sama kecepatannya udah disesuaiin
-// mungkin bakal ada penyesuaian lagi, kaya posisi gambar sama delay teks
-=======
 using namespace std;
 
 // non-blocking check for skip key; requires caller to set nodelay(stdscr, TRUE)
@@ -19,7 +12,6 @@ bool Story::input() {
     }
     return false;
 }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
 void Story::reciter (string text, int delay){
     for (char c : text) {
@@ -61,11 +53,7 @@ void Story::Loading(){
         mvprintw(18, 56, "--------------------");
         mvprintw(19, 56, "     Please wait");
 
-<<<<<<< HEAD
-        for(int f = 1; f <= 20; f++){
-=======
          for(int f = 1; f <= 20; f++){
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
             mvprintw(17, 56 + f, "|");
             refresh();
             napms(50);
@@ -78,11 +66,7 @@ void Story::Intro(){
     // Ini manggil musiknya, musiknya entar ditambah lagi
     // Ini ngikutin local path gw
     // entar coba biar semua bisa play lagunya
-<<<<<<< HEAD
-    playmusic("D:\\DEV\\UAP-PP\\CODE\\Musik\\Epic Intro.wav");
-=======
     //playmusic("D:\\DEV\\UAP-PP\\CODE\\Musik\\Epic Intro.wav");
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     curs_set(0);
     
@@ -111,69 +95,33 @@ void Story::Intro(){
     mvprintw(24, 35, "    +              .        *         .              .         +          ");
     refresh();
 
-<<<<<<< HEAD
-    napms(2000);
-=======
     // make long waits responsive to skip
     for (int t = 0; t < 2000; t += 100) { napms(100); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(26, 35);
     reciter("Pada abad ke-75, berjarak ribuan tahun cahaya dari bumi.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     
     move(27, 35);
     reciter("Jauh di dalam Supergugus Laniakea XZ-4, terdapat arena angkasa kuno,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
 
     move(28, 35);
     reciter("yang disebut sebagai THE RESONANCE CHAMBER.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(29, 35);
     reciter("Peninggalan peradaban kosmik yang telah musnah ribuan tahun lalu.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     clear();
     napms(200);
@@ -191,81 +139,37 @@ void Story::Intro(){
     mvprintw(15, 45, "      '-.               .-'");
     mvprintw(16, 45, "          '-._______.-'");
     refresh();
-<<<<<<< HEAD
-    napms(2000);
-=======
     for (int t = 0; t < 2000; t += 100) { napms(100); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(18, 35);
     reciter("Di dalam arena itu, terdapat sebuah bola energi yang terus berdenyut,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(19, 35);
     reciter("yang dikenal sebagai The Astral Core.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(20, 35);
     reciter("Bola misterius ini memiliki kekuatan besar, ");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(21, 35);
     reciter("dengan satu getaran yang mampu menstabilkan alam semesta,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(22, 35);
     reciter("atau menghancurkan.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     clear();
     napms(200);
@@ -279,68 +183,30 @@ void Story::Intro(){
     mvprintw(21, 40, "|                                                             |");
     mvprintw(22, 40, "+-------------------------------------------------------------+");
     refresh();
-<<<<<<< HEAD
-    napms(2000);
-=======
     for (int t = 0; t < 2000; t += 100) { napms(100); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(24, 40);
     reciter("Dua fraksi terbesar di galaksi, FRAKSI PROXIMA dan FRAKSI CENTAURI,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(25, 40);
     reciter("kini bersaing untuk menguasai Astral Core tersebut.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(26, 40);
     reciter("Perang besar dilarang, karena energi Laniakea XZ-4 terlalu rapuh.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     move(27, 40);
     reciter("Satu letupan dari getaran Astral Core saja dapat membuat semesta kembali ke titik nol.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     clear();
     napms(200);
 
@@ -373,53 +239,25 @@ void Story::Intro(){
     mvprintw(30, 45, "      .         *                  .     #*         *           ");
     mvprintw(31, 45, "  *        .              *     .        **    .         *      ");
     refresh();
-<<<<<<< HEAD
-    napms(2000);
-=======
     for (int t = 0; t < 2000; t += 100) { napms(100); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(33, 45);
     reciter("Seluruh galaksi sepakat, satu-satunya cara,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(34, 45);
     reciter("untuk untuk menyelesaikan sengketa perebutan benda misterius tersebut,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(35, 45);
     reciter("hanyalah dengan PERTARUNGAN DI ARENA RESONANSI.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     clear();
     napms(200);
@@ -467,58 +305,25 @@ void Story::Intro(){
     reciter("Kamu adalah pilot terpilih, yang ditakdirkan untuk kelak akan menyelamatkan semesta.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(37, 40);
     reciter("Gunakan kemampuanmu dengan baik.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(38, 40);
     reciter("Kapalmu akan memasuki arena kosmik berbahaya, di mana pantulan energi kosmik,");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(39, 40);
     reciter("akan menentukan masa depan alam semesta.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     clear();
     napms(200);
 
@@ -548,29 +353,12 @@ void Story::Intro(){
     reciter("Setiap pantulan adalah gema sejarah.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     move(30, 25);
     reciter("Setiap gema adalah penentu takdir.");
     refresh();
     napms(25);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     mvprintw(9, 100,  "                 //\\\\       ");
     mvprintw(10, 100, "                //  \\\\      ");
@@ -598,29 +386,12 @@ void Story::Intro(){
     reciter("Dan setiap kekalahan,");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-
-=======
    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     move(30, 100);
     reciter("artinya adalah akhir.");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     clear();
 
@@ -657,97 +428,37 @@ void Story::Intro(){
     reciter("Pertahankan orbitmu.");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     
     move(33, 35);
     reciter("jangan biarkan kekuatan Astral Core jatuh ke tangan musuh.");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-    
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     move(34, 35);
     reciter("Buktikan fraksimu layak memegang cahaya kosmos.");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
 
     clear();
     napms(2000);
-<<<<<<< HEAD
-    stopmusic();
-=======
     //stopmusic();
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(30, 40);
     reciter("> Ini bukan hanya sekedar pertempuran.");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-=======
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
 
     move(32, 40);
     reciter("> Ini adalah legenda yang ditulis dalam kehampaan gugus bintang.");
     refresh();
     napms(10);
-<<<<<<< HEAD
-    for (int t = 0; t < 3000; t += 100) {
-        napms(25);
-        int ch = getch();
-        if (ch == 's' || ch == 'S') { endwin(); exit(0); }
-    }
-
-    napms(3000); 
-=======
 
     for (int t = 0; t < 3000; t += 100) { napms(100); if (input()) return; }
->>>>>>> ebd005e275d0ee96ea27444f3fede89c4fb3251c
     clear();
 
 }
-
-// FUNGSI MAIN INI HANYA UNTUK TES SAJA
-// int main(){
-
-//     initscr();
-//     nodelay(stdscr, TRUE);
-//     Story story;
-// //     // story.Title();
-// //     // story.Loading();
-//     story.Intro();
-    
-//     endwin();
-// }

@@ -1,16 +1,19 @@
 #include <ncurses/curses.h>
 #include "bola.h"
 #include "game.h"
+#include "story.h"
+
 
 const short tick_speed = 50; //jangan diubah
 
 bool Game::input() {
-    int ch = getch();
+    auto ch = getch();
     if (ch == 'q') return false;
     return true;
 }
 
 void Game::game() {
+    box(stdscr, 0, 0);
     initscr();
     curs_set(0);
     nodelay(stdscr, TRUE);     
@@ -26,6 +29,10 @@ void Game::game() {
     const int turner = -1;
 
     bool run = true;
+    Story story;
+    story.Title();
+    story.Loading();
+    story.Intro();
 
     while(run) {
         run = input();
