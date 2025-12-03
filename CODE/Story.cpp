@@ -1,5 +1,6 @@
 #include <ncurses/curses.h>
 #include "Story.h"
+#include "menu.h"
 #include <iostream>
 using namespace std;
 
