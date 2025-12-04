@@ -12,9 +12,7 @@ class Story {
     void Title();
     void Loading();
     void Intro();
-    // returns true if story was skipped by user
     bool skipped() const { return _skipped; }
-    // reset skipped flag (if you want to reuse Story instance)
     void reset_skipped() { _skipped = false; }
     
     private:

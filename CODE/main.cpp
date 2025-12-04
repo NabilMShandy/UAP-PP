@@ -5,28 +5,39 @@
 #include "menu.h"
 using namespace std;
 
-bool skip() {
-    int ch = getch();
-    if (ch == 'q' || ch == 'Q') return false;
-    return true;
-}
-
 int main() {
-    //system("color 78");
-    MENU main_menu;
-    main_menu.menu();
-    initscr();
+    int pilihan;
+    //system("color 78");       
+    initscr();    
+    nodelay(stdscr, TRUE); 
     box(stdscr, 0, 0);
     curs_set(0);
     noecho();
-    nodelay(stdscr, TRUE);
 
+    // Panggil class story
+    Story story;    
+    story.Title();
+    story.Loading();
     clear();
     refresh();
 
+    // Panggil class menu
+    MENU menu;
+    menu.initGame();
+    menu.tampilanBintang();
+    menu.tampilanJudul();
+    menu.tampilanMenu(pilihan);
+    menu.menu();
+    clear();
+    refresh();
+
+    // Panggil class game
     Game start_game;
+    nodelay(stdscr, TRUE);    
+    //story.Intro();
     start_game.game();
 
-    endwin();
+    endwin();             
+    
     return 0;
 }

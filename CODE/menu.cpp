@@ -116,20 +116,22 @@ void MENU::tampilanMenu(int pilihan) {
 }
 
 void MENU::menu() {
-    initGame();
+    // initGame() should be called by the caller (main) once.
+    // Use blocking input for the menu so it doesn't spin and redraw continuously.
+    nodelay(stdscr, FALSE);
 
     int pilihan = 0;
     int ch;
-    
+
     while (true) {
         clear();
-        
+
         tampilanBintang();
 
         tampilanJudul();
 
         tampilanMenu(pilihan);
-        
+
         refresh();
 
         ch = getch();
@@ -154,6 +156,5 @@ void MENU::menu() {
             }
         }
     }
-
     refresh();
 }

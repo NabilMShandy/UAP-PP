@@ -1,5 +1,6 @@
 #include <ncurses/curses.h>
-#include "story.h"
+#include "Story.h"
+#include "menu.h"
 #include <iostream>
 using namespace std;
 
@@ -37,7 +38,11 @@ void Story::Title(){
     mvprintw(13, 25, " \\______/    |__/  |__/  |__/|__/  |__/      |__/       \\______/ |__/  \\__/ \\______/");
     
     refresh();
-    napms(3000);
+    // make Title responsive to skip key by polling in short intervals
+    for (int t = 0; t < 3000; t += 100) {
+        napms(100);
+        if (input()) return;
+    }
 
 }
 
@@ -57,6 +62,7 @@ void Story::Loading(){
             mvprintw(17, 56 + f, "|");
             refresh();
             napms(50);
+            if (input()) return; // allow skip during loading
         }
     }
 }
