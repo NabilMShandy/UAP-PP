@@ -21,18 +21,15 @@ void Bola::tampilkan() {
 
 int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
     // Collision dengan paddle kiri
-    if (x + gx <= left.x + 1 && x + gx >= left.x) {
-        if (y >= left.y && y <= left.y + left.height - 1) {
-            gx *= -1;
-        }
-    }
+    if (x + gx == left.x + 1 && y + gy >= left.y && y + gy <= left.y + left.height - 1) {
+    gx *= -1;
+}
 
     // Collision dengan paddle kanan
-    if (x + gx >= right.x - 1 && x + gx <= right.x) {
-        if (y >= right.y && y <= right.y + right.height - 1) {
-            gx *= -1;
-        }
+    if (x + gx == right.x - 1 && y + gy >= right.y && y + gy <= right.y + right.height - 1) {
+        gx *= -1;
     }
+    
 
     // Now move the ball after collision check
     gerak(gx, gy);
@@ -45,7 +42,8 @@ int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
         x = max_x / 2;
         y = max_y / 2;
         int random = (rand() % 2) ? 1 : -1;
-        return gx * random;  
+         gx * random;  
+         gy * random;
     }
     
   

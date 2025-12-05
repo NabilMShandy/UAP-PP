@@ -9,8 +9,6 @@ int main() {
     int pilihan;
     //system("color 78");       
     initscr();    
-    nodelay(stdscr, TRUE); 
-    box(stdscr, 0, 0);
     curs_set(0);
     noecho();
 
@@ -33,8 +31,10 @@ int main() {
 
     // Panggil class game
     Game start_game;
-    nodelay(stdscr, TRUE);    
+    nodelay(stdscr, TRUE);  
+    box(stdscr, 0, 0); 
     //story.Intro();
+    system("color 3d");
     start_game.game();
 
     endwin();             
