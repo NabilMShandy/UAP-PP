@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-// non-blocking check for skip key; requires caller to set nodelay(stdscr, TRUE)
+
 bool Story::input() {
     int ch = getch();
     if (ch != ERR && (ch == 's' || ch == 'S')) {
@@ -38,7 +38,7 @@ void Story::Title(){
     mvprintw(13, 25, " \\______/    |__/  |__/  |__/|__/  |__/      |__/       \\______/ |__/  \\__/ \\______/");
     
     refresh();
-    // make Title responsive to skip key by polling in short intervals
+    
     for (int t = 0; t < 3000; t += 100) {
         napms(100);
         if (input()) return;
