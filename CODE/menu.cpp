@@ -3,6 +3,14 @@
 #include "menu.h"
 using namespace std;
 
+void jalankanmusik(const char *musik, DWORD mode = SND_ASYNC | SND_LOOP) {
+    PlaySoundA(musik, NULL, mode);
+}
+
+void hentikanmusik() {
+    PlaySoundA(NULL, 0, SND_PURGE);
+}
+
 void MENU::initGame() {
     initscr();
     cbreak();
@@ -120,6 +128,8 @@ void MENU::menu() {
     // Use blocking input for the menu so it doesn't spin and redraw continuously.
     nodelay(stdscr, FALSE);
 
+    jalankanmusik("Musik/lobby.wav");
+
     int pilihan = 0;
     int ch;
 
@@ -148,9 +158,11 @@ void MENU::menu() {
             }
         } else if (ch == 10) {
             if (pilihan == 0) {
+                hentikanmusik();
                 return;
             } 
             else{
+                hentikanmusik();
                 endwin();
                 exit(0);
             }

@@ -5,8 +5,17 @@
 #include "story.h"
 #include "padel.h"
 
+void mainkanmusik(const char *fileMusik, DWORD opsi = SND_ASYNC | SND_LOOP) {
+    PlaySoundA(fileMusik, NULL, opsi);
+}
+
+void stopmusik() {
+    PlaySoundA(NULL, 0, SND_PURGE);
+}
+
 const short tick_speed = 50; //jangan diubah
 void Game::game() {
+    mainkanmusik("Musik/gamepay.wav");
     int speed = 1;
     int gx = speed;
     int gy = speed;
@@ -60,7 +69,8 @@ void Game::game() {
     refresh();
     napms(16); // ~60 FPS
 }
-  
+
+    stopmusik();
 }
 
 
