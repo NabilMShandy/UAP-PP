@@ -32,6 +32,7 @@ int main() {
     refresh();
 
     // Panggil class game
+
     Game start_game;
     nodelay(stdscr, TRUE);  
     box(stdscr, 0, 0); 

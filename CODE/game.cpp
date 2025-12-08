@@ -59,7 +59,13 @@ void Game::game() {
     // update bola dan cek tabrakan
     gx = bola.updateposisi(gx, gy, left, right);
     erase();
+    //gambar box dan garis tengah
     box(stdscr, 0, 0);
+    int middle_x = getmaxx(stdscr) / 2;
+    int max_y = getmaxy(stdscr);
+    for (int i = 0; i < max_y; i++) {
+        if (i % 2 == 1) mvprintw(i, middle_x, "|");
+    }
     // tampilkan semua objek
     bola.tampilkan();
     left.tampilkan();
