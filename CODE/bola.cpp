@@ -40,7 +40,7 @@ int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
         else score_left++;
         x = max_x / 2;
         y = max_y / 2;
-        int random = (rand() % 2) ? 1 : -1;
+        int random = (rand() % 2 == 1) ? 1 : -1;
          gx * random;  
          gy * random;
     }
@@ -55,6 +55,16 @@ int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
 
 void Bola::tampilkan_score() {
     getmaxyx(stdscr, max_y, max_x);
-    mvprintw(0, 2, "Score Left: %d", score_left);
-    mvprintw(0, max_x - 15, "Score Right: %d", score_right);
+    mvprintw(0, 2, "Skor kiri: %d", score_left);
+    mvprintw(0, max_x - 15, "Skor kanan: %d", score_right);
+    if (score_left > score_right) {
+        mvprintw(0, max_x / 2 - 7, "skor tertinggi: Pemain 1");
+    } else if (score_right > score_left) {
+        mvprintw(0, max_x / 2 - 7, "skor tertinggi: Pemain 2");
+    } else {
+        if (score_left == 0 && score_right == 0)
+             mvprintw(0, max_x / 2 - 7, "              ");
+        else
+        mvprintw(0, max_x / 2 - 3, "seri");
+    }
 }

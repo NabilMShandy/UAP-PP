@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
     int pilihan;
+    
     //system("color 78");       
     initscr();    
     curs_set(0);
@@ -19,7 +20,8 @@ int main() {
     clear();
     refresh();
 
-    // Panggil class menu
+    do{
+     // Panggil class menu
     MENU menu;
     menu.initGame();
     menu.tampilanBintang();
@@ -36,7 +38,7 @@ int main() {
     story.Intro();
     system("color 3d");
     start_game.game();
-
+    } while (true);
     endwin();             
     
     return 0;

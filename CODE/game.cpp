@@ -32,7 +32,7 @@ void Game::game() {
     bool run = true;
     refresh();
     keypad(stdscr, TRUE);
-    int max_score = 10;
+    int max_score = 100;
     while(run) {
    //input gw pindahin ke loop sekalian biar ga berat amat
     int ch;
