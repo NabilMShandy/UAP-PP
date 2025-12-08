@@ -49,9 +49,11 @@ void Story::Title(){
     
     refresh();
     
-    for (int t = 0; t < 3000; t += 100) {
+    for (int t = 0; t < 2500; t += 100) {
         napms(100);
+        nodelay(stdscr, TRUE);
         if (input()) return;
+        //break;
     }
 
 }
@@ -72,7 +74,8 @@ void Story::Loading(){
             mvprintw(17, 56 + f, "|");
             refresh();
             napms(50);
-            if (input()) return; // allow skip during loading
+            nodelay(stdscr, TRUE);
+            if (input()) return;
         }
     }
 }

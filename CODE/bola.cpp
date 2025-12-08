@@ -31,7 +31,6 @@ int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
     }
     
 
-    // Now move the ball after collision check
     gerak(gx, gy);
 
     getmaxyx(stdscr, max_y, max_x);
