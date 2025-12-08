@@ -148,7 +148,7 @@ void MENU::menu() {
             }
         } else if (ch == 10) {
             if (pilihan == 0) {
-               return;
+                return;
             } 
             else{
                 endwin();
