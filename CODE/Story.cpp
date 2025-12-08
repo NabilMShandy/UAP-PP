@@ -17,6 +17,7 @@ void stopmusic() {
 bool Story::input() {
     int ch = getch();
     if (ch != ERR && (ch == 's' || ch == 'S')) {
+        stopmusic();
         _skipped = true;
         return true;
     }
@@ -81,7 +82,7 @@ void Story::Intro(){
     // Ini manggil musiknya, musiknya entar ditambah lagi
     // Ini ngikutin local path gw
     // entar coba biar semua bisa play lagunya
-    playmusic("Musik/Epic.wav", SND_ASYNC);
+    playmusic("Musik/Epic.wav");
 
     curs_set(0);
     
@@ -401,7 +402,7 @@ void Story::Intro(){
     reciter("Dan setiap kekalahan,");
     refresh();
     napms(10);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
     move(30, 100);
     reciter("artinya adalah akhir.");
     refresh();
@@ -439,6 +440,8 @@ void Story::Intro(){
     refresh();
     napms(2000);
 
+    stopmusic();
+    
     move(32, 35);
     reciter("Pertahankan orbitmu.");
     refresh();
