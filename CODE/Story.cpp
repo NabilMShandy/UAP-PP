@@ -4,6 +4,15 @@
 #include <iostream>
 using namespace std;
 
+// Play musik
+void playmusic(const char *musicFile, DWORD flags = SND_ASYNC | SND_LOOP) {
+    PlaySoundA(musicFile, NULL, flags);
+}
+
+// Stop musik
+void stopmusic() {
+  PlaySoundA(NULL, 0, SND_PURGE);
+}
 
 bool Story::input() {
     int ch = getch();
@@ -72,7 +81,7 @@ void Story::Intro(){
     // Ini manggil musiknya, musiknya entar ditambah lagi
     // Ini ngikutin local path gw
     // entar coba biar semua bisa play lagunya
-    //playmusic("D:\\DEV\\UAP-PP\\CODE\\Musik\\Epic Intro.wav");
+    playmusic("Musik/Epic.wav", SND_ASYNC);
 
     curs_set(0);
     
@@ -451,7 +460,7 @@ void Story::Intro(){
 
     clear();
     napms(2000);
-    //stopmusic();
+    stopmusic();
 
     move(30, 40);
     reciter("> Ini bukan hanya sekedar pertempuran.");

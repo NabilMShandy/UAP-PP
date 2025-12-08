@@ -33,7 +33,7 @@ int main() {
     Game start_game;
     nodelay(stdscr, TRUE);  
     box(stdscr, 0, 0); 
-    //story.Intro();
+    story.Intro();
     system("color 3d");
     start_game.game();
 
