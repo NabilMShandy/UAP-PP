@@ -2,6 +2,7 @@
 #include <ncurses/curses.h>
 #include "padel.h"
 
+
 Bola::Bola(int begin_x, int begin_y) {
     this->x = begin_x;
     this->y = begin_y;
@@ -40,12 +41,12 @@ int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
         else score_left++;
         x = max_x / 2;
         y = max_y / 2;
-        int random = (rand() % 2 == 1) ? 1 : -1;
-         gx * random;  
-         gy * random;
+        int random = ((rand() % 2 == 1) ? 1 : -1);
+         gx *= random;  
+         gy *= random;
     }
     
-  
+
     if (y <= 1 || y >= max_y - 2) {
         gy *= -1;
     }
@@ -63,8 +64,9 @@ void Bola::tampilkan_score() {
         mvprintw(0, max_x / 2 - 7, "skor tertinggi: Pemain 2");
     } else {
         if (score_left == 0 && score_right == 0)
-             mvprintw(0, max_x / 2 - 7, "              ");
+             mvprintw(0, max_x / 2 - 7, "____________________________");
         else
         mvprintw(0, max_x / 2 - 3, "seri");
     }
 }
+

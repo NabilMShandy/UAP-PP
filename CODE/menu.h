@@ -7,4 +7,5 @@ public:
     void tampilanJudul();
     void tampilanMenu(int pilihan);
     void menu();
+    void tampilkanHighScore();
 };

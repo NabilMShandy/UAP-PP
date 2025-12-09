@@ -1,5 +1,6 @@
 #include <ncurses/curses.h>
 #include <windows.h>
+#include <fstream>
 #include "menu.h"
 using namespace std;
 
@@ -25,6 +26,7 @@ void MENU::initGame() {
     init_pair(4, COLOR_WHITE, COLOR_BLACK);
 }
 
+// Bintang
 void MENU::tampilanBintang() {
     mvprintw(2, 22, " *    .        *          *        .         *         *        .        *      ");
     mvprintw(3, 22, "  *          .                                      .        *               *  ");
@@ -52,6 +54,7 @@ void MENU::tampilanBintang() {
     mvprintw(25, 22, "  *          .                                     .        *                *  ");
 }
 
+// Judul
 void MENU::tampilanJudul() {
     int awalX = 6;
     int awalY = 120 / 2;
@@ -67,6 +70,7 @@ void MENU::tampilanJudul() {
     attroff(COLOR_PAIR(2));
 }
 
+// Menu
 void MENU::tampilanMenu(int pilihan) {
     short int kolom_kiriAtas = 48;
     short int baris_kiriAtas = 14;
@@ -77,57 +81,46 @@ void MENU::tampilanMenu(int pilihan) {
     attron(COLOR_PAIR(1));
 
     mvaddch(baris_kiriAtas, kolom_kiriAtas, ACS_ULCORNER);
-
-    for (kolom = kolom_kiriAtas + 1;  kolom < kolom_kananBawah; kolom++) {
-        mvaddch(baris_kiriAtas, kolom, ACS_HLINE);
-    }
-
+    for (kolom = kolom_kiriAtas + 1;  kolom < kolom_kananBawah; kolom++) mvaddch(baris_kiriAtas, kolom, ACS_HLINE);
     mvaddch(baris_kiriAtas, kolom_kananBawah, ACS_URCORNER);
 
-    for (baris = baris_kiriAtas + 1;  baris < baris_kananBawah; baris++) {
-        mvaddch(baris, kolom_kananBawah, ACS_VLINE);
-    }
-    
+    for (baris = baris_kiriAtas + 1;  baris < baris_kananBawah; baris++) mvaddch(baris, kolom_kananBawah, ACS_VLINE);
     mvaddch(baris_kananBawah, kolom_kananBawah, ACS_LRCORNER);
-
-    for (kolom = kolom_kananBawah - 1;  kolom > kolom_kiriAtas; kolom--) {
-        mvaddch(baris_kananBawah, kolom, ACS_HLINE);
-    }
-
+    for (kolom = kolom_kananBawah - 1;  kolom > kolom_kiriAtas; kolom--) mvaddch(baris_kananBawah, kolom, ACS_HLINE);
     mvaddch(baris_kananBawah, kolom_kiriAtas, ACS_LLCORNER);
-
-    for (baris = baris_kananBawah - 1;  baris > baris_kiriAtas; baris--) {
-        mvaddch(baris, kolom_kiriAtas, ACS_VLINE);
-    }
+    for (baris = baris_kananBawah - 1;  baris > baris_kiriAtas; baris--) mvaddch(baris, kolom_kiriAtas, ACS_VLINE);
 
     attroff(COLOR_PAIR(1));
-
-    if (pilihan == 0) {
+    const char* menuOpsi[2] = { "PLAY", "EXIT" }; //DIKASIH ARRAY.
+    for (int i = 0; i < 2; i++) {
+    if (pilihan == i) {
         attron(COLOR_PAIR(3));
-        mvprintw(baris_kiriAtas + 2, kolom_kiriAtas + 2, "     >    PLAY    <     ");
+        mvprintw(baris_kiriAtas + 2 + i*2, kolom_kiriAtas + 2, "     >    %s    <     ", menuOpsi[i]);
         attroff(COLOR_PAIR(3));
     } else {
         attron(COLOR_PAIR(4));
-        mvprintw(baris_kiriAtas + 2, kolom_kiriAtas + 2, "          PLAY          ");
-        attroff(COLOR_PAIR(4));
-    }
-
-    if (pilihan == 1) {
-        attron(COLOR_PAIR(3) | A_BOLD);
-        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 2, "     >    EXIT    <     ");
-        attroff(COLOR_PAIR(3) | A_BOLD);
-    } else {
-        attron(COLOR_PAIR(4));
-        mvprintw(baris_kiriAtas + 4, kolom_kiriAtas + 2, "          EXIT          ");
+        mvprintw(baris_kiriAtas + 2 + i*2, kolom_kiriAtas + 2, "          %s          ", menuOpsi[i]);
         attroff(COLOR_PAIR(4));
     }
 }
 
-void MENU::menu() {
-    // initGame() should be called by the caller (main) once.
-    // Use blocking input for the menu so it doesn't spin and redraw continuously.
-    nodelay(stdscr, FALSE);
+}
 
+// HIGH SCORE
+void MENU::tampilkanHighScore() {
+    ifstream file("highscore.txt");
+    int player = 0, skor = 0;
+    if(file.is_open()) {
+        file >> player >> skor;
+        file.close();
+    }
+    int max_x = getmaxx(stdscr);
+    mvprintw(1, max_x/2 - 20, "Skor tertinggi saat ini: Pemain %d -> %d", player, skor);
+}
+
+// Menu utama
+void MENU::menu() {
+    nodelay(stdscr, FALSE);
     jalankanmusik("Musik/lobby.wav");
 
     int pilihan = 0;
@@ -135,33 +128,24 @@ void MENU::menu() {
 
     while (true) {
         clear();
-
         tampilanBintang();
-
         tampilanJudul();
-
+        tampilkanHighScore(); // <-- highscore ditampilkan di sini
         tampilanMenu(pilihan);
-
         refresh();
 
         ch = getch();
-
         if (ch == KEY_UP) {
-            pilihan = pilihan - 1;
-            if (pilihan < 0) {
-                pilihan = 1;
-            }
+            pilihan--;
+            if (pilihan < 0) pilihan = 1;
         } else if (ch == KEY_DOWN) {
-            pilihan = pilihan + 1;
-            if (pilihan > 1) {
-                pilihan = 0;
-            }
+            pilihan++;
+            if (pilihan > 1) pilihan = 0;
         } else if (ch == 10) {
             if (pilihan == 0) {
                 hentikanmusik();
                 return;
-            } 
-            else{
+            } else {
                 hentikanmusik();
                 endwin();
                 exit(0);
