@@ -9,18 +9,18 @@
 
 int speed = 1;
 
-void playmusic(const char *fileMusik, DWORD opsi = SND_ASYNC | SND_LOOP) {
+void mainkanmusik(const char *fileMusik, DWORD opsi = SND_ASYNC | SND_LOOP) {
     PlaySoundA(fileMusik, NULL, opsi);
 }
 
-void stopmusic() {
+void stopmusik() {
     PlaySoundA(NULL, 0, SND_PURGE);
 }
 
 const short tick_speed = 50;
 
 void Game::game() {
-    playmusic("Musik/gamepay.wav");
+    mainkanmusik("Musik/gamepay.wav");
     const int turner = -1;
 
     curs_set(false);
@@ -99,5 +99,5 @@ void Game::game() {
         file.close();
     }
 
-    stopmusic();
+    stopmusik();
 }

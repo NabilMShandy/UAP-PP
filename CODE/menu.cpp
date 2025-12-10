@@ -4,11 +4,11 @@
 #include "menu.h"
 using namespace std;
 
-void playmusic(const char *musik, DWORD mode = SND_ASYNC | SND_LOOP) {
+void playmusicc(const char *musik, DWORD mode = SND_ASYNC | SND_LOOP) {
     PlaySoundA(musik, NULL, mode);
 }
 
-void stopmusic() {
+void stopmusicc() {
     PlaySoundA(NULL, 0, SND_PURGE);
 }
 
@@ -126,7 +126,7 @@ void MENU::tampilkanHighScore() {
 // Menu utama
 void MENU::menu() {
     nodelay(stdscr, FALSE);
-    playmusic("Musik/lobby.wav");
+    playmusicc("Musik/lobby.wav");
 
     int pilihan = 0;
     int ch;
@@ -151,11 +151,11 @@ void MENU::menu() {
         } 
         else if (ch == 10) {
             if (pilihan == 0) {
-                stopmusic();
+                stopmusicc();
                 return;
             } 
         else {
-            stopmusic();
+            stopmusicc();
             endwin();
             exit(0);
             }
