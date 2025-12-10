@@ -9,18 +9,18 @@
 
 int speed = 1;
 
-void mainkanmusik(const char *fileMusik, DWORD opsi = SND_ASYNC | SND_LOOP) {
+void playmusic(const char *fileMusik, DWORD opsi = SND_ASYNC | SND_LOOP) {
     PlaySoundA(fileMusik, NULL, opsi);
 }
 
-void stopmusik() {
+void stopmusic() {
     PlaySoundA(NULL, 0, SND_PURGE);
 }
 
 const short tick_speed = 50;
 
 void Game::game() {
-    mainkanmusik("Musik/gamepay.wav");
+    playmusic("Musik/gamepay.wav");
     const int turner = -1;
 
     curs_set(false);
@@ -88,18 +88,16 @@ void Game::game() {
         refresh();
         napms(16);
     }
-     int skorKiri = bola.get_score_left();
+    int skorKiri = bola.get_score_left();
     int skorKanan = bola.get_score_right();
-
-        int pemenang = (skorKiri > skorKanan) ? 1 : 2;
-        int skorPemenang = (skorKiri > skorKanan) ? skorKiri : skorKanan;
-
-        std::ofstream file("highscore.txt");
-        if (file.is_open()) {
+    
+    int pemenang = (skorKiri > skorKanan) ? 1 : 2;
+    int skorPemenang = (skorKiri > skorKanan) ? skorKiri : skorKanan;
+    std::ofstream file("highscore.txt");
+    if (file.is_open()) {
         file << pemenang << " " << skorPemenang;
         file.close();
-}
+    }
 
-
-    stopmusik();
+    stopmusic();
 }

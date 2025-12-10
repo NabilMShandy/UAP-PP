@@ -4,11 +4,11 @@
 #include "menu.h"
 using namespace std;
 
-void jalankanmusik(const char *musik, DWORD mode = SND_ASYNC | SND_LOOP) {
+void playmusic(const char *musik, DWORD mode = SND_ASYNC | SND_LOOP) {
     PlaySoundA(musik, NULL, mode);
 }
 
-void hentikanmusik() {
+void stopmusic() {
     PlaySoundA(NULL, 0, SND_PURGE);
 }
 
@@ -92,12 +92,14 @@ void MENU::tampilanMenu(int pilihan) {
 
     attroff(COLOR_PAIR(1));
     const char* menuOpsi[2] = { "PLAY", "EXIT" }; //DIKASIH ARRAY.
+
     for (int i = 0; i < 2; i++) {
     if (pilihan == i) {
         attron(COLOR_PAIR(3));
         mvprintw(baris_kiriAtas + 2 + i*2, kolom_kiriAtas + 2, "     >    %s    <     ", menuOpsi[i]);
         attroff(COLOR_PAIR(3));
-    } else {
+    } 
+    else {
         attron(COLOR_PAIR(4));
         mvprintw(baris_kiriAtas + 2 + i*2, kolom_kiriAtas + 2, "          %s          ", menuOpsi[i]);
         attroff(COLOR_PAIR(4));
@@ -109,11 +111,14 @@ void MENU::tampilanMenu(int pilihan) {
 // HIGH SCORE
 void MENU::tampilkanHighScore() {
     ifstream file("highscore.txt");
+
     int player = 0, skor = 0;
+
     if(file.is_open()) {
         file >> player >> skor;
         file.close();
     }
+
     int max_x = getmaxx(stdscr);
     mvprintw(1, max_x/2 - 20, "Skor tertinggi saat ini: Pemain %d -> %d", player, skor);
 }
@@ -121,7 +126,7 @@ void MENU::tampilkanHighScore() {
 // Menu utama
 void MENU::menu() {
     nodelay(stdscr, FALSE);
-    jalankanmusik("Musik/lobby.wav");
+    playmusic("Musik/lobby.wav");
 
     int pilihan = 0;
     int ch;
@@ -138,17 +143,21 @@ void MENU::menu() {
         if (ch == KEY_UP) {
             pilihan--;
             if (pilihan < 0) pilihan = 1;
-        } else if (ch == KEY_DOWN) {
+
+        } 
+        else if (ch == KEY_DOWN) {
             pilihan++;
             if (pilihan > 1) pilihan = 0;
-        } else if (ch == 10) {
+        } 
+        else if (ch == 10) {
             if (pilihan == 0) {
-                hentikanmusik();
+                stopmusic();
                 return;
-            } else {
-                hentikanmusik();
-                endwin();
-                exit(0);
+            } 
+        else {
+            stopmusic();
+            endwin();
+            exit(0);
             }
         }
     }

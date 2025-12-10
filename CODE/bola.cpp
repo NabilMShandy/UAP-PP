@@ -56,17 +56,21 @@ int Bola::updateposisi(int gx, int &gy, Paddle &left, Paddle &right) {
 
 void Bola::tampilkan_score() {
     getmaxyx(stdscr, max_y, max_x);
+
     mvprintw(0, 2, "Skor kiri: %d", score_left);
+
     mvprintw(0, max_x - 15, "Skor kanan: %d", score_right);
+
     if (score_left > score_right) {
         mvprintw(0, max_x / 2 - 7, "skor tertinggi: Pemain 1");
-    } else if (score_right > score_left) {
+    } 
+    else if (score_right > score_left) {
         mvprintw(0, max_x / 2 - 7, "skor tertinggi: Pemain 2");
-    } else {
+    } 
+    else {
         if (score_left == 0 && score_right == 0)
-             mvprintw(0, max_x / 2 - 7, "____________________________");
+        mvprintw(0, max_x / 2 - 7, "____________________________");
         else
         mvprintw(0, max_x / 2 - 3, "seri");
     }
 }
-

@@ -58,7 +58,6 @@ void Story::Title(){
 
 }
 
-
 // Tampilan loading
 void Story::Loading(){
     curs_set(0);
@@ -82,9 +81,6 @@ void Story::Loading(){
 
 // Story
 void Story::Intro(){
-    // Ini manggil musiknya, musiknya entar ditambah lagi
-    // Ini ngikutin local path gw
-    // entar coba biar semua bisa play lagunya
     playmusic("Musik/Epic.wav");
 
     curs_set(0);
@@ -182,13 +178,13 @@ void Story::Intro(){
     reciter("dengan satu getaran yang mampu menstabilkan alam semesta,");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
     move(22, 35);
     reciter("atau menghancurkan.");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
     clear();
     napms(200);
@@ -220,12 +216,12 @@ void Story::Intro(){
     reciter("Perang besar dilarang, karena energi Laniakea XZ-4 terlalu rapuh.");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
     move(27, 40);
     reciter("Satu letupan dari getaran Astral Core saja dapat membuat semesta kembali ke titik nol.");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
     clear();
     napms(200);
 
@@ -267,7 +263,7 @@ void Story::Intro(){
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
     move(34, 45);
-    reciter("untuk untuk menyelesaikan sengketa perebutan benda misterius tersebut,");
+    reciter("untuk menyelesaikan sengketa perebutan benda misterius tersebut,");
     refresh();
     napms(25);
     for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
@@ -324,19 +320,19 @@ void Story::Intro(){
     reciter("Kamu adalah pilot terpilih, yang ditakdirkan untuk kelak akan menyelamatkan semesta.");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
     move(37, 40);
     reciter("Gunakan kemampuanmu dengan baik.");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
     move(38, 40);
     reciter("Kapalmu akan memasuki arena kosmik berbahaya, di mana pantulan energi kosmik,");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
 
     move(39, 40);
     reciter("akan menentukan masa depan alam semesta.");
@@ -372,7 +368,7 @@ void Story::Intro(){
     reciter("Setiap pantulan adalah gema sejarah.");
     refresh();
     napms(25);
-   for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
+    for (int t = 0; t < 3000; t += 100) { napms(25); if (input()) return; }
     move(30, 25);
     reciter("Setiap gema adalah penentu takdir.");
     refresh();
