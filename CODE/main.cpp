@@ -1,8 +1,8 @@
 #include <ncurses/curses.h>
 #include <windows.h>
-#include "story.h"
-#include "game.h"
-#include "menu.h"
+#include "head/story.h"
+#include "head/game.h"
+#include "head/menu.h"
 using namespace std;
 
 int main() {

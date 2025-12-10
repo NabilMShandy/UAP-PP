@@ -1,7 +1,7 @@
 #include <ncurses/curses.h>
 #include <windows.h>
 #include <fstream>
-#include "menu.h"
+#include "head/menu.h"
 using namespace std;
 
 void playmusicc(const char *musik, DWORD mode = SND_ASYNC | SND_LOOP) {

@@ -1,6 +1,6 @@
-#include "bola.h"
+#include "head/bola.h"
 #include <ncurses/curses.h>
-#include "padel.h"
+#include "head/padel.h"
 
 
 Bola::Bola(int begin_x, int begin_y) {

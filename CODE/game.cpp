@@ -1,9 +1,9 @@
 #include <ncurses/curses.h>
 #include <string>
-#include "bola.h"
-#include "game.h"
-#include "story.h"
-#include "padel.h"
+#include "head/bola.h"
+#include "head/game.h"
+#include "head/story.h"
+#include "head/padel.h"
 #include <fstream>
 #include <windows.h>
 

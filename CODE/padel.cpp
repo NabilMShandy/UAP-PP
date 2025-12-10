@@ -1,6 +1,6 @@
 #include <ncurses/curses.h>
-#include "bola.h"
-#include "padel.h"
+#include "head/bola.h"
+#include "head/padel.h"
 
 Paddle::Paddle(int begin_x, int begin_y) {
     x = begin_x;
