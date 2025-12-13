@@ -136,6 +136,7 @@ Universitas Lampung
 
 Dibuat dengan ❤ menggunakan C++
 
+
 ```
 
 
@@ -143,3 +144,13 @@ Dibuat dengan ❤ menggunakan C++
 
 ## Footage Game
 ![Alt text](gif.gif)
+
+<img width="1031" height="647" alt="menu phonk" src="https://github.com/user-attachments/assets/3d0dddf0-79e9-47d7-b6ff-35ad58f929e0" />
+
+
+
+
+
+
+
+
