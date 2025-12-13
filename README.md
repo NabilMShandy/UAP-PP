@@ -142,4 +142,4 @@ Dibuat dengan ❤ menggunakan C++
 ```
 
 ## Footage Game
-![Alt text](phong gif.gif)
+![Alt text](CODE/phong gif.gif)
